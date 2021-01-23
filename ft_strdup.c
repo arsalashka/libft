@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maearly <maearly@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 13:24:28 by maearly           #+#    #+#             */
-/*   Updated: 2020/10/30 19:29:43 by maearly          ###   ########.fr       */
+/*   Updated: 2021/01/22 13:42:01 by maearly          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,17 @@
 
 char	*ft_strdup(const char *s1)
 {
-	char	*buf;
-	int		i;
+	char	*cpy;
+	size_t	i;
 
-	buf = (char *)malloc(ft_strlen(s1) * sizeof(char) + 1);
-	if (NULL == buf)
+	if (!(cpy = (char *)malloc(sizeof(char) * (ft_strlen(s1) + 1))))
 		return (NULL);
 	i = 0;
-	while (i < (int)ft_strlen(s1))
+	while (s1[i])
 	{
-		buf[i] = s1[i];
-		i++;
+		cpy[i] = s1[i];
+		++i;
 	}
-	buf[i] = '\0';
-	return (buf);
+	cpy[i] = '\0';
+	return (cpy);
 }
